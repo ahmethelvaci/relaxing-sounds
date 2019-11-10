@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'api',
         'passwords' => 'users',
     ],
 
@@ -36,14 +36,9 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'device',
             'hash' => false,
         ],
     ],
@@ -66,15 +61,10 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'device' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Device::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
