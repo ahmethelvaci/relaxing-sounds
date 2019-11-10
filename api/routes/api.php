@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Responses\JsonResponse;
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,8 +14,6 @@ use Illuminate\Http\Request;
 Route::post('start', 'StartController');
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('/test', function (Request $request) {
-        return (new JsonResponse)->response(auth()->user());
-    });
+    
 });
 

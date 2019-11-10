@@ -23,15 +23,15 @@ GET api/libraries/{id}
 ```
 - Get Metadata of this Sounds
 GET api/sounds/{id} 
+
+- Add Sound to Favorites List
+POST api/sounds/{id}/favorites
+
+- Subtract Sound from Favorites List
+DELETE api/sounds/{id}/favorites
 ```
 ### Favorites
 ```
 - List Sounds of Favorites
 GET api/favorites 
-
-- Add Sound to Favorites List
-POST api/favorites/sounds/{id} 
-
-- Subtract Sound from Favorites List
-DELETE api/favorites/sounds/{id} 
 ```
