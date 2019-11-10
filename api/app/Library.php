@@ -13,4 +13,12 @@ class Library extends Model
      * @var array
      */
     protected $fillable = ['name', 'image'];
+
+    /**
+     * Get the sounds for the library.
+     */
+    public function sounds()
+    {
+        return $this->hasMany('App\Sound');
+    }
 }

@@ -24,8 +24,8 @@ class LibraryController extends Controller
      * @param  \App\Library  $library
      * @return \Illuminate\Http\Response
      */
-    public function show(Library $library)
+    public function show(Library $library, JsonResponse $response)
     {
-        //
+        return $response->response($library->sounds);
     }
 }
