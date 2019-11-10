@@ -14,6 +14,6 @@
 Route::post('start', 'StartController');
 
 Route::middleware('auth:api')->group(function () {
-    
+    Route::resource('libraries', 'LibraryController')->only(['index', 'show']);
 });
 
