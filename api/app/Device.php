@@ -49,4 +49,12 @@ class Device extends Model implements Authenticatable
             return 'force_update';
         }
     }
+
+    /**
+     * Get the sounds for the library.
+     */
+    public function sounds()
+    {
+        return $this->belongsToMany('App\Sound', 'favorites');
+    }
 }
