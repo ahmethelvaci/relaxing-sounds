@@ -20,6 +20,7 @@ docker-compose up --build
 
 Create Tables and Seed
 ```bash
+docker exec -it challence_api_fpm composer install
 docker exec -it challence_api_fpm php artisan migrate:fresh --seed
 ```
 
