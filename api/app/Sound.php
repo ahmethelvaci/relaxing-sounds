@@ -13,4 +13,6 @@ class Sound extends Model
      * @var array
      */
     protected $fillable = ['library_id', 'name', 'src'];
+
+    protected $hidden = ['library_id', 'pivot'];
 }
