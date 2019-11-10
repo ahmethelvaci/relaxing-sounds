@@ -2,12 +2,15 @@
 
 namespace App;
 
+use Illuminate\Auth\Authenticatable as IlluminateAuthenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Device extends Model
+class Device extends Model implements Authenticatable
 {
+    use IlluminateAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
