@@ -16,8 +16,7 @@ class CreateDevicesTable extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('api_token', 80)->unique()
-                        ->nullable();
+            $table->string('api_token', 80)->unique();
             $table->timestamps();
         });
     }
