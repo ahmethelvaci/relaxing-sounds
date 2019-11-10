@@ -29,15 +29,7 @@ class FavoriteController extends Controller
      */
     public function store(Sound $sound, JsonResponse $response)
     {
-        $device = auth()->user();
-
-        $favorite = Favorite::where([
-            ['device_id', $device->id],
-            ['sound_id', $sound->id]
-        ])->first();
-
-        if ($favorite == null) {
-            $device->sounds()->attach($sound);
+        if (Favorite::add($sound)) {
             return $response->response(['status' => true], 201);
         } else {
             return $response->response(['status' => false], 409, 'This sound alredy in favorites');
@@ -53,18 +45,10 @@ class FavoriteController extends Controller
      */
     public function destroy(Sound $sound, JsonResponse $response)
     {
-        $device = auth()->user();
-
-        $favorite = Favorite::where([
-            ['device_id', $device->id],
-            ['sound_id', $sound->id]
-        ])->first();
-
-        if ($favorite == null) {
-            return $response->response(['status' => false], 409, 'This sound alredy not in favorites');
-        } else {
-            $device->sounds()->detach($sound);
+        if (Favorite::sub($sound)) {
             return $response->response(['status' => true]);
+        } else {
+            return $response->response(['status' => false], 409, 'This sound alredy not in favorites');
         }
         
     }

@@ -15,18 +15,18 @@ class JsonResponse
      * @param string $errorMessage
      * @return \Illuminate\Http\JsonResponse
      */
-    public function response($data, int $status = 200, string $errorMessage = null)
+    public function response($result, int $status = 200, string $errorMessage = null)
     {
-        if (!is_array($data) && !($data instanceof Arrayable)) {
-            throw new InvalidArgumentException('Response $data must be Arrayable!');
+        if (!is_array($result) && !($result instanceof Arrayable)) {
+            throw new InvalidArgumentException('Response $result must be Arrayable!');
         }
 
-        if ($data instanceof Arrayable) {
-            $data = $data->toArray();
+        if ($result instanceof Arrayable) {
+            $result = $result->toArray();
         }
 
         $response = [
-            'data' => $data,
+            'result' => $result,
             'errorMessage' => $errorMessage,
             'errorCode' => $status,
         ];
