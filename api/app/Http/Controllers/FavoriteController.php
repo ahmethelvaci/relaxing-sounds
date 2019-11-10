@@ -17,7 +17,7 @@ class FavoriteController extends Controller
     public function index(JsonResponse $response)
     {
         $device = auth()->user();
-        return $response->response($device->sounds);
+        return $response->response($device->sounds()->paginate(10));
 
     }
 

@@ -15,7 +15,7 @@ class LibraryController extends Controller
      */
     public function index(JsonResponse $response)
     {
-        return $response->response(Library::all());
+        return $response->response(Library::paginate(10));
     }
 
     /**
@@ -26,6 +26,6 @@ class LibraryController extends Controller
      */
     public function show(Library $library, JsonResponse $response)
     {
-        return $response->response($library->sounds);
+        return $response->response($library->sounds()->paginate(10));
     }
 }
