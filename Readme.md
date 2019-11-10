@@ -6,10 +6,10 @@ Bu uygulama ise Uygulamaların Kitaplık ve Favori listelerini alabilecekleri M�
 
 ## Endpointler
 
-### Login
+### Start
 ```
  - Taking token for app
-POST api/login
+POST api/start
 ```
 ### Library
 ```
